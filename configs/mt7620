@@ -1,0 +1,5 @@
+CONFIG_TARGET_ramips=y
+CONFIG_TARGET_ramips_mt7620=y
+CONFIG_TARGET_ramips_mt7620_DEVICE_y1=y
+
+CONFIG_PACKAGE_kmod-mt76x2e=y
