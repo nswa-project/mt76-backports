@@ -1,0 +1,119 @@
+mt76-backports
+
+backport origin mt76 and mac80211/cfg80211 drivers to
+18.06.x OpenWrt out-side-tree (won't dirty your source tree).
+
+============================================================================
+
+1. set OWRT_DIR if your openwrt source tree is not '../openwrt'
+
+	$ export OWRT_DIR=/path/to/openwrt/sourcetree
+
+2. run ./mount-overlayfs.sh and enter sudo password
+
+	$ ./mount-overlayfs.sh
+	[sudo] password for xxxx:
+
+3. run ./compile-driver.sh to compile drivers to 'build' directory
+
+	$ ./compile-driver.sh
+	openwrt is a mountpoint
+	Collecting package info: done
+	#
+	# configuration written to .config
+	#
+	time: target/linux/prereq#0.25#0.04#0.29
+	 make[1] package/kernel/mac80211/compile
+	 make[2] -C package/libs/toolchain compile
+	 make[2] -C package/firmware/b43legacy-firmware compile
+	 make[2] -C package/firmware/linux-firmware compile
+	 make[2] -C package/firmware/prism54-firmware compile
+	 make[2] -C package/firmware/wireless-regdb compile
+	 make[2] -C package/libs/openssl compile
+	 make[2] -C package/libs/gettext compile
+	 make[2] -C package/libs/libiconv compile
+	 make[2] -C package/libs/libtool compile
+	 make[2] -C package/libs/libjson-c compile
+	 make[2] -C package/utils/lua compile
+	 make[2] -C package/libs/libnl-tiny compile
+	 make[2] -C package/kernel/linux compile
+	 make[2] -C package/libs/wolfssl compile
+	 make[2] -C package/libs/libubox compile
+	 make[2] -C package/network/utils/iw compile
+	 make[2] -C package/system/ubus compile
+	 make[2] -C package/network/services/hostapd compile
+	 make[2] -C package/kernel/mac80211 compile
+	 make[1] package/kernel/mt76/compile
+	 make[2] -C package/libs/toolchain compile
+	 make[2] -C package/firmware/linux-firmware compile
+	 make[2] -C package/firmware/prism54-firmware compile
+	 make[2] -C package/firmware/b43legacy-firmware compile
+	 make[2] -C package/firmware/wireless-regdb compile
+	 make[2] -C package/libs/openssl compile
+	 make[2] -C package/libs/gettext compile
+	 make[2] -C package/libs/libiconv compile
+	 make[2] -C package/libs/libtool compile
+	 make[2] -C package/libs/libjson-c compile
+	 make[2] -C package/utils/lua compile
+	 make[2] -C package/libs/libnl-tiny compile
+	 make[2] -C package/libs/wolfssl compile
+	 make[2] -C package/libs/libubox compile
+	 make[2] -C package/network/utils/iw compile
+	 make[2] -C package/system/ubus compile
+	 make[2] -C package/kernel/linux compile
+	 make[2] -C package/network/services/hostapd compile
+	 make[2] -C package/kernel/mac80211 compile
+	 make[2] -C package/kernel/mt76 compile
+	#
+	# configuration written to .config
+	#
+	time: target/linux/prereq#0.23#0.05#0.33
+	 make[1] package/kernel/mac80211/compile
+	 make[2] -C package/libs/toolchain compile
+	 make[2] -C package/firmware/b43legacy-firmware compile
+	 make[2] -C package/firmware/linux-firmware compile
+	 make[2] -C package/firmware/prism54-firmware compile
+	 make[2] -C package/firmware/wireless-regdb compile
+	 make[2] -C package/libs/openssl compile
+	 make[2] -C package/libs/gettext compile
+	 make[2] -C package/libs/libiconv compile
+	 make[2] -C package/libs/libtool compile
+	 make[2] -C package/libs/libjson-c compile
+	 make[2] -C package/utils/lua compile
+	 make[2] -C package/libs/libnl-tiny compile
+	 make[2] -C package/libs/wolfssl compile
+	 make[2] -C package/libs/libubox compile
+	 make[2] -C package/network/utils/iw compile
+	 make[2] -C package/system/ubus compile
+	 make[2] -C package/kernel/linux compile
+	 make[2] -C package/network/services/hostapd compile
+	 make[2] -C package/kernel/mac80211 compile
+	 make[1] package/kernel/mt76/compile
+	 make[2] -C package/libs/toolchain compile
+	 make[2] -C package/firmware/linux-firmware compile
+	 make[2] -C package/firmware/prism54-firmware compile
+	 make[2] -C package/firmware/b43legacy-firmware compile
+	 make[2] -C package/firmware/wireless-regdb compile
+	 make[2] -C package/libs/openssl compile
+	 make[2] -C package/libs/gettext compile
+	 make[2] -C package/libs/libiconv compile
+	 make[2] -C package/libs/libtool compile
+	 make[2] -C package/libs/libjson-c compile
+	 make[2] -C package/utils/lua compile
+	 make[2] -C package/libs/libnl-tiny compile
+	 make[2] -C package/libs/wolfssl compile
+	 make[2] -C package/libs/libubox compile
+	 make[2] -C package/network/utils/iw compile
+	 make[2] -C package/system/ubus compile
+	 make[2] -C package/kernel/linux compile
+	 make[2] -C package/network/services/hostapd compile
+	 make[2] -C package/kernel/mac80211 compile
+	 make[2] -C package/kernel/mt76 compile
+	cp: cannot stat 'bin/targets/ramips/mt7621/packages/kmod-rt2800*.ipk': No such file or directory
+
+	
+4. (optional) run ./unpack-ipks.sh to extract ipks to 'rootfs' directory
+
+============================================================================
+
+Tips: Make sure you have a good Internet connection at compile time.
