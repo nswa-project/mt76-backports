@@ -8,7 +8,7 @@ compile() {
 	make package/kernel/mac80211/compile -j${JOBS}
 	make package/kernel/mt76/compile -j${JOBS}
 	mkdir -p "../build/$1"
-	cp bin/targets/ramips/"${1}"/packages/kmod-{cfg80211,mac80211,rt2800,mt76}*.ipk "../build/$1"
+	cp bin/targets/ramips/"${1}"/packages/kmod-{cfg80211,mac80211,rt2800,rt2x00,mt76}*.ipk "../build/$1"
 }
 
 if ! mountpoint openwrt ; then
